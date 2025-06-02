@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz Game</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body id="Quiz">
+  <div id="subject-selection" class="quiz-container">
+    <h2 style="text-align:center">Select a Subject</h2>
+    <div style="display:flex; justify-content: space-around; margin: 20px;">
+      <button class="btn" onclick="selectSubject('html')">HTML</button>
+      <button class="btn" onclick="selectSubject('css')">CSS</button>
+      <button class="btn" onclick="selectSubject('js')">JavaScript</button>
+    </div>
+  </div>
+
+  <div class="quiz-container hide" id="quiz-box">
+    <div id="question-container">
+      <p id="question">Question</p><hr><br>
+      <div id="answer-buttons"></div>
+    </div>
+    <button id="next-btn" class="btn hide">Next</button>
+    <div id="result" class="hide"></div>
+    <button id="restart-btn" class="btn hide">Restart</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

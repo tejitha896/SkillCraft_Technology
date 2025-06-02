@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quizzy Land</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Quizzy Land</div>
+    <nav class="navigation">
+      <a href="#" id="home-link">Home</a>
+      <a href="#" id="quiz-link">Quiz</a>
+      <a href="#" id="contact-link">Contact</a>
+      <button id="login-btn">Login</button>
+    </nav>
+  </header>
+
+  <h1 id="typing" style="color:black; text-align:center; margin-top:100px; font-size:36px;"></h1>
+
+  <div class="wrappear" id="login-form-container">
+    <div class="form-box">
+      <h2>Login</h2>
+      <form id="login-form">
+        <div class="input-box">
+          <label for="email">E-mail ID</label>
+          <input type="email" id="email" required />
+        </div>
+        <div class="input-box">
+          <label for="password">Password</label>
+          <input type="password" id="password" required />
+        </div>
+        <button type="submit" class="btn" id="style">Login</button><br>
+        <p>If you Don't have an Account?<a href="#">Create Account</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const message = "Welcome to our QuizzyLand - where learning meets fun!!";
+    const typingEl = document.getElementById("typing");
+    let index = 0;
+
+    function typeWriter() {
+      if (index < message.length) {
+        typingEl.textContent += message.charAt(index);
+        index++;
+        setTimeout(typeWriter, 100);
+      }
+    }
+
+    window.addEventListener("load", typeWriter);
+
+    const loginBtn = document.getElementById("login-btn");
+    const loginFormContainer = document.getElementById("login-form-container");
+    const errorDiv = document.getElementById("error");
+
+    loginBtn.addEventListener("click", () => {
+      loginFormContainer.style.display = "block";
+      errorDiv.style.display = "none";
+    });
+
+    document.getElementById("home-link").addEventListener("click", () => {
+      loginFormContainer.style.display = "none";
+    });
+
+    document.getElementById("quiz-link").addEventListener("click", (e) => {
+      e.preventDefault();
+      const isLoggedIn = sessionStorage.getItem("loggedIn");
+
+      if (isLoggedIn === "true") {
+        window.location.href = "quiz.html";
+      } else {
+        alert("Please login first");
+        loginFormContainer.style.display = "block";
+      }
+    });
+
+    document.getElementById("contact-link").addEventListener("click", () => {
+      loginFormContainer.style.display = "none";
+    });
+
+    document.getElementById("login-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (email === "test@example.com" && password === "123456") {
+        sessionStorage.setItem("loggedIn", "true");
+        window.location.href = "quiz.html";
+      } else {
+        errorDiv.style.display = "block";
+        errorDiv.textContent = "Invalid email or password";
+      }
+    });
+  </script>
+</body>
+</html>
