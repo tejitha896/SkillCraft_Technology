@@ -1,0 +1,86 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+
+      /*Fixed Navigation Bar*/
+
+  .navbar {
+    position: fixed;
+    height: 90px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    top: 0;
+    z-index: 1000;
+  }
+
+      /*Background color changes when scrolled (via JS)*/
+  .navbar.scrolled {
+    background-color:white;
+  }
+
+      /*Navigation menu stylying*/
+
+  nav ul {
+    background-color:#f00b51;
+    list-style: none;
+    display: flex;
+    justify-content:center;
+    padding: 2.5rem;
+    margin: 0;
+  }
+  
+  nav ul li {
+    margin-left: 70px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size:28px;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  nav ul li a:hover {
+    color: purple;
+    font-size: 30px;
+  }
+  
+  .section {
+    height: 80vh;
+    padding: 100px 20px 20px;
+    padding-top: 300px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    background: white;
+    text-align: center;
+    justify-content: center;
+    border: 5px solid rgba(0, 0, 0, 0.712);
+    border-radius: 20px;
+   
+    box-shadow: 5px 5px 5px gray;
+  }
+      /*Alternative background for even section*/
+  .section:nth-child(even){
+    background-color:white;
+    
+  }
+  .section:nth-child(odd){
+    background-color: white;
+  }
+
+  .section p a{
+    font-size: 28px;
+  }
+  
+  .section p{
+    line-height: 1.5;
+    font-size: 20px;
+  }
+      /*Bootstrap icons styling*/
+  .style{
+    position: relative;
+    left:150px;
+  }
